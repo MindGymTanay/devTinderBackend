@@ -10,3 +10,10 @@
 -update scripts inside package.json
 -what is ue of "-g" while npm install 
 
+-initialize git
+-.gitignore
+-create a remote repository on github and push all code to remote origin
+
+-play with routes and route extension /hello, /hello2, /
+-Order of the routes matter a lot
+-write logic to handle GET,POST,PUT,PATCH,DELETE API calls and test them on POSTMAN
