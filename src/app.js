@@ -3,7 +3,9 @@ const express=require('express');
 const app=express();
 
 //This will only handle GET calls to /user
-app.get("/user", (req,res)=>{
+//This are the Dynamic Routes for our application
+app.get("/user/:userId/:name/:password", (req,res)=>{
+    console.log(req.params);
     res.send({firstName:"Tanay",lastName:"Agrawal"});
 })
 

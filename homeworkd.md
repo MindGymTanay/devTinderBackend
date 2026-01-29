@@ -17,3 +17,6 @@
 -play with routes and route extension /hello, /hello2, /
 -Order of the routes matter a lot
 -write logic to handle GET,POST,PUT,PATCH,DELETE API calls and test them on POSTMAN
+-Explore routing with regex /a /.*fly$/ 
+-How to reading the Query params in routes
+-reading the dynamic routes
