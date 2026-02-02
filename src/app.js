@@ -2,40 +2,63 @@ const express=require('express');
 
 const app=express();
 
+const {adminAuth,userAuth}=require("./middlewares/auth.js")
 //app.use("/route",rh,[rh2,rh3],rh4,rh5);
 
+app.use("/admin",adminAuth);
 
-app.use("/user",[(req,res,next)=>{
-   // res.send("Route handler 1");
-   console.log("Handling the route user");
-   next();
-   
-},(req,res,next)=>{
+app.post("/user/login",(req,res)=>{
+    res.send("user logged in successfully");
+
+})
+
+
+
+ app.get("/user/data",userAuth,(req,res)=>{
+    
+    res.send("User Data Sent");
+
+})
+app.get("/admin/getAllData", (req,res)=>{
+
+         res.send("All Data Sent");
+})
+
+app.get("/admin/deleteUser", (req,res)=>{
+    res.send("Delete a user");
+    
+})
+
+
+
+app.use("/",(req,res,next)=>{
+    console.log("matching route");
+
+    next();
+  
+
+})
+
+app.get("/user",(req,res,next)=>{
     console.log("Handling the route user 2!!");
-   // res.send("2nd Response!!");
-   next();
-
-
-},(req,res,next)=>{
-    console.log("Handling the route user 3!!");
+   res.send("2nd Route Handler");
     next();
-}
-,
+})
+
+
+app.get("/user",
 (req,res,next)=>{
-    console.log("Handling the route user 4!!");
-    //res.send("4 th Response!!");
-    next();
+   // res.send("Route handler 1");
+   console.log("Handling the route user!!");
+   //next();
+   
 },
-(req,res)=>{
-    console.log("Handling the route user 5");
-    res.send("5 th Response");
-}
-]
-
-
-
-
 );
+
+
+app.listen(7777,()=>{
+    console.log("Server is running successfully on port 7777");
+});
 
 //This will only handle GET calls to /user
 //This are the Dynamic Routes for our application
@@ -72,6 +95,3 @@ app.use("/user",[(req,res,next)=>{
 // })
 
 
-app.listen(7777,()=>{
-    console.log("Server is running successfully on port 7777");
-});
