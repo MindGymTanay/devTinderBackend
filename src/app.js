@@ -2,58 +2,80 @@ const express=require('express');
 
 const app=express();
 
-const {adminAuth,userAuth}=require("./middlewares/auth.js")
+app.use("/",(error,req,res,next)=>{
+    if(error){
+        res.status(500).send("something went wrong");
+    }
+})
+
+app.get("/getUserData",(req,res)=>{
+
+    try{
+    //logic of DB call and get user Data
+   throw new Error("dnvndk");
+   res.send("user data send");
+    }
+    catch(err){
+        res.status(500).send("Some Error Contact support team");
+    }
+
+
+})
+
+
+
+//const {adminAuth,userAuth}=require("./middlewares/auth.js")
 //app.use("/route",rh,[rh2,rh3],rh4,rh5);
 
-app.use("/admin",adminAuth);
+// app.use("/admin",adminAuth);
 
-app.post("/user/login",(req,res)=>{
-    res.send("user logged in successfully");
+// app.post("/user/login",(req,res)=>{
+//     res.send("user logged in successfully");
 
-})
+// })
 
 
 
- app.get("/user/data",userAuth,(req,res)=>{
+//  app.get("/user/data",userAuth,(req,res)=>{
     
-    res.send("User Data Sent");
+//     res.send("User Data Sent");
 
-})
-app.get("/admin/getAllData", (req,res)=>{
+// })
+// app.get("/admin/getAllData", (req,res)=>{
 
-         res.send("All Data Sent");
-})
+//          res.send("All Data Sent");
+// })
 
-app.get("/admin/deleteUser", (req,res)=>{
-    res.send("Delete a user");
+// app.get("/admin/deleteUser", (req,res)=>{
+//     res.send("Delete a user");
     
-})
+// })
 
 
 
-app.use("/",(req,res,next)=>{
-    console.log("matching route");
+// app.use("/",(req,res,next)=>{
+//     console.log("matching route");
 
-    next();
+//     next();
   
 
-})
+// })
 
-app.get("/user",(req,res,next)=>{
-    console.log("Handling the route user 2!!");
-   res.send("2nd Route Handler");
-    next();
-})
+// app.get("/user",(req,res,next)=>{
+//     console.log("Handling the route user 2!!");
+//    res.send("2nd Route Handler");
+//     next();
+// })
 
 
-app.get("/user",
-(req,res,next)=>{
-   // res.send("Route handler 1");
-   console.log("Handling the route user!!");
-   //next();
+// app.get("/user",
+// (req,res,next)=>{
+//    // res.send("Route handler 1");
+//    console.log("Handling the route user!!");
+//    //next();
    
-},
-);
+// },
+// );
 
 
 app.listen(7777,()=>{
