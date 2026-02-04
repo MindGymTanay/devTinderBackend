@@ -4,16 +4,20 @@ const connectDB=require("./config/database");
 const app=express();
 const User=require("./models/User");
 
+app.use(express.json());
+
 app.post("/signUp",async (req,res)=>{
 
-    const userObj={
-        firstName:"Sachin",
-        lastName:"Tendulkar",
-        emailId:"sachin@gmail.com",
-        password:"Sachin@123",
+    console.log(req.body);
+
+    // const userObj={
+    //     firstName:"Sachin",
+    //     lastName:"Tendulkar",
+    //     emailId:"sachin@gmail.com",
+    //     password:"Sachin@123",
         
-    }
-    const user=new User(userObj);
+    // }
+    const user=new User(req.body);
 
     //creating a new instance of User model
     try{
