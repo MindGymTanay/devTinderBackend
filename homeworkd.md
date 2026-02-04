@@ -31,3 +31,10 @@
 -write a dummy auth middleware for admin
 -write a dummy auth middleware for all user routes except /user/login
 -Error Handling using app.use
+
+-Install mongoose library
+-connect your application to Database "connetion-url"/devTider
+-call a cnnectDB function and connect to the database before starting the application
+-create a uerSchema & user Model 
+-create a Post  /signUp API to add data to database
+-Push some documents using API calls from Postman
