@@ -47,4 +47,9 @@
 
 -API- Get user by email
 -get all the users from the database
+-create a delete user API
+-Diffence between PUT and PATCH
+
+-What are the options in a Model.findAndUpdate method, explore more about it
+-API - update the user with email ID
 
