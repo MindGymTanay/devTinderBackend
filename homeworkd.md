@@ -53,3 +53,11 @@
 -What are the options in a Model.findAndUpdate method, explore more about it
 -API - update the user with email ID
 
+
+-Explore scehamatype options from the documentation
+-add,required,unique,lowercase,min,minLength,trim
+-Add default value
+-create a custom validate function from gender
+-Improve the DB schema - Put all appropriate validations on each field in schemas
+-Add timestamps to the userSchema
+
