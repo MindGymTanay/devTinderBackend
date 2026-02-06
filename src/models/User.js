@@ -1,4 +1,5 @@
 const mongoose=require('mongoose');
+const validator=require("validator");
 
 const userSchema=new mongoose.Schema({
     firstName:{
@@ -19,10 +20,21 @@ const userSchema=new mongoose.Schema({
         required:true,
         lowercase:true,
         trim:true,
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Invalid Email address "+value);
+            }
+
+        }
     },
     password:{
         type:String,
         required:true,
+        validate(value){
+            if(!validator.isStrongPassword(value)){
+                throw new Error("Enter a strong password"+value);
+            }
+        }
 
     },
     age:{
@@ -41,7 +53,12 @@ const userSchema=new mongoose.Schema({
     },
     photoUrl:{
         type:String,
-        default:"https://media.istockphoto.com/id/2164499395/photo/happy-woman-with-phone-and-coffee-mug.jpg?s=2048x2048&w=is&k=20&c=_s28V0Y_ncHKIK1NjG0HZ9cZXhVHioCkIk1bxSMt50o="
+        default:"https://media.istockphoto.com/id/2164499395/photo/happy-woman-with-phone-and-coffee-mug.jpg?s=2048x2048&w=is&k=20&c=_s28V0Y_ncHKIK1NjG0HZ9cZXhVHioCkIk1bxSMt50o=",
+        validate(value){
+            if(!validator.isURL(value)){
+                throw new Error("Invalid photo URL: "+value);
+            }
+        }
     },
     about:{
         type:String,
